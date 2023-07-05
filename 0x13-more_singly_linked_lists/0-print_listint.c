@@ -8,15 +8,15 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	size_t gmail = 0;
+	size_t jojesus = 0;
 
 	while (h)
 	{
-		printf("%d\n", h);
-		gmail++;
+		printf("%d\n", h->n);
+		jojesus++;
 		h = h->next;
 	}
 
-	return (gmail);
+	return (jojesus);
 }
 
