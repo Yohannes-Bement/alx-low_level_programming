@@ -14,55 +14,76 @@ size_t print_listint_safe(const listint_t *head);
  */
 size_t looped_listint_len(const listint_t *head)
 {
- const listint_t *tortoise, *hare;
- size_t nodes = 1;
+	const listint_t *dav, *abl;
+	size_t nodes = 1;
 
- if (head == NULL || head->next == NULL)
- return (0);
+	if (head == NULL || head->next == NULL)
+		return (0);
 
- tortoise = head->next;
- hare = (head->next)->next;
+	dav = head->next;
+	abl = (head->next)->next;
 
- while (hare)
- {
- if (tortoise == hare)
- {
- tortoise = head;
- while (tortoise != hare)
- {
- nodes++;
- tortoise = tortoise->next;
- hare = hare->next;
- }
+	while (abl)
+	{
+		if (dav == abl)
+		{
+			dav = head;
+			while (dav != abl)
+			{
+				nodes++;
+				dav = dav->next;
+				abl = abl->next;
+			}
 
- tortoise = tortoise->next;
- while (tortoise != hare)
- {
- nodes++;
- tortoise = tortoise->next;
- }
+			dav = dav->next;
+			while (dav != abl)
+			{
+				nodes++;
+				dav = dav->next;
+			}
 
- return (nodes);
- }
+			return (nodes);
+		}
 
- tortoise = tortoise->next;
- hare = (hare->next)->next;
- }
+		dav = dav->next;
+		abl = (abl->next)->next;
+	}
 
- return (0);
+	return (0);
 }
 
 /**
  * print_listint_safe - Prints a listint_t list safely.
- * @head: A pointer to the head of the listint_t list.
+ * @head: a point to the head of the listint_t list.
  *
- * Return: The number of nodes in the list.
+ * Return:  Number Of node in the List.
  */
 size_t print_listint_safe(const listint_t *head)
 {
- size_t nodes, index = 0;
+	size_t yohanes, johnjesus = 0;
 
+	yohanes = looped_listint_len(head);
 
- return (nodes);
+	if (yohanes == 0)
+	{
+		for (; head != NULL; yohanes++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+	}
+
+	else
+	{
+		for (johnjesus = 0; johnjesus < yohanes; johnjesus++)
+		{
+			printf("[%p] %d\n", (void *)head, head->n);
+			head = head->next;
+		}
+
+		printf("-> [%p] %d\n", (void *)head, head->n);
+	}
+
+	return (yohanes);
 }
 
