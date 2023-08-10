@@ -10,22 +10,22 @@
  */
 int *array_range(int min, int max)
 {
-	int *ptr;
-	int i, size;
+	int *john;
+	int icon, size;
 
 	if (min > max)
 		return (NULL);
 
 	size = max - min + 1;
 
-	ptr = malloc(sizeof(int) * size);
+	john = malloc(sizeof(int) * size);
 
-	if (ptr == NULL)
+	if (john == NULL)
 		return (NULL);
 
-	for (i = 0; min <= max; i++)
-		ptr[i] = min++;
+	for (icon = 0; min <= max; i++)
+		john[i] = min++;
 
-	return (ptr);
+	return (john);
 }
 

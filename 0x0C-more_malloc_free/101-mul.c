@@ -12,13 +12,13 @@
  */
 int is_digit(char *s)
 {
-	int i = 0;
+	int icon = 0;
 
-	while (s[i])
+	while (s[icon])
 	{
-		if (s[i] < '0' || s[i] > '9')
+		if (s[icon] < '0' || s[icon] > '9')
 			return (0);
-		i++;
+		icon++;
 	}
 	return (1);
 }
@@ -31,13 +31,13 @@ int is_digit(char *s)
  */
 int _strlen(char *s)
 {
-	int i = 0;
+	int icon = 0;
 
-	while (s[i] != '\0')
+	while (s[icon] != '\0')
 	{
-		i++;
+		icon++;
 	}
-	return (i);
+	return (icon);
 }
 
 /**
@@ -58,45 +58,45 @@ void errors(void)
  */
 int main(int argc, char *argv[])
 {
-	char *s1, *s2;
-	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
+	char *yohanes1, *john2;
+	int lens1, leng2, lent, icon, car, dig1, dig2, *res, a = 0;
 
-	s1 = argv[1], s2 = argv[2];
-	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+	yohanes1 = argv[1], john2 = argv[2];
+	if (argc != 3 || !is_digit(yohanes1) || !is_digit(john2))
 		errors();
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
-	len = len1 + len2 + 1;
-	result = malloc(sizeof(int) * len);
-	if (!result)
+	lens1 = _strlen(yohanes1);
+	leng2 = _strlen(john2);
+	lent = lens1 + leng2 + 1;
+	res = malloc(sizeof(int) * lent);
+	if (!res)
 		return (1);
-	for (i = 0; i <= len1 + len2; i++)
-		result[i] = 0;
-	for (len1 = len1 - 1; len1 >= 0; len1--)
+	for (icon = 0; icon <= lens1 + leng2; icon++)
+		res[icon] = 0;
+	for (lens1 = lens1 - 1; lens1 >= 0; lens1--)
 	{
-		digit1 = s1[len1] - '0';
-		carry = 0;
-		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
+		dig1 = yohanes1[lens1] - '0';
+		car = 0;
+		for (leng2 = _strlen(john2) - 1; leng2 >= 0; leng2--)
 		{
-			digit2 = s2[len2] - '0';
-			carry += result[len1 + len2 + 1] + (digit1 * digit2);
-			result[len1 + len2 + 1] = carry % 10;
-			carry /= 10;
+			dig2 = john2[leng2] - '0';
+			car += res[lens1 + leng2 + 1] + (dig1 * dig2);
+			res[lens1 + leng2 + 1] = car % 10;
+			car /= 10;
 		}
-		if (carry > 0)
-			result[len1 + len2 + 1] += carry;
+		if (car > 0)
+			res[lens1 + leng2 + 1] += car;
 	}
-	for (i = 0; i < len - 1; i++)
+	for (icon = 0; icon < lent - 1; icon++)
 	{
-		if (result[i])
+		if (res[icon])
 			a = 1;
 		if (a)
-			_putchar(result[i] + '0');
+			_putchar(res[icon] + '0');
 	}
 	if (!a)
 		_putchar('0');
 	_putchar('\n');
-	free(result);
+	free(res);
 	return (0);
 }
 

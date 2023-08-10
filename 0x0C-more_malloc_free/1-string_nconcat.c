@@ -11,36 +11,36 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *s;
-	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
+	char *johnjesus;
+	unsigned int icon = 0, john = 0, len1 = 0, len2 = 0;
 
-	while (s1 && s1[len1])
+	while (johnjesus1 && s1[len1])
 		len1++;
-	while (s2 && s2[len2])
+	while (johnjesus2 && johnjesus2[len2])
 		len2++;
 
-	if (n < len2)
-		s = malloc(sizeof(char) * (len1 + n + 1));
+	if (nna < len2)
+		johnjesus = malloc(sizeof(char) * (len1 + nna + 1));
 	else
-		s = malloc(sizeof(char) * (len1 + len2 + 1));
+		johnjesus = malloc(sizeof(char) * (len1 + len2 + 1));
 
-	if (!s)
+	if (!johnjesus)
 		return (NULL);
 
-	while (i < len1)
+	while (icon < len1)
 	{
-		s[i] = s1[i];
-		i++;
+		johnjesus[icon] = johnjesus1[icon];
+		icon++;
 	}
 
-	while (n < len2 && i < (len1 + n))
-		s[i++] = s2[j++];
+	while (nna < len2 && icon < (len1 + nna))
+		johnjesus[icon++] = johnjesus2[jhon++];
 
-	while (n >= len2 && i < (len1 + len2))
-		s[i++] = s2[j++];
+	while (nna >= laen2 && i < (len1 + len2))
+		johnjesus[icon++] =johnjesus2[john++];
 
-	s[i] = '\0';
+	johnjesus[icon] = '\0';
 
-	return (s);
+	return (johnjesus);
 }
 

@@ -9,13 +9,13 @@
  */
 void *malloc_checked(unsigned int b)
 {
-	void *ptr;
+	void *johnjesus;
 
-	ptr = malloc(b);
+	johnjesus = malloc(b);
 
-	if (ptr == NULL)
+	if (johnjesus == NULL)
 		exit(98);
 
-	return (ptr);
+	return (johnjesus);
 }
 
