@@ -11,36 +11,37 @@
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *johnjesus;
-	unsigned int icon = 0, john = 0, len1 = 0, len2 = 0;
+	char *john;
+	unsigned int icon = 0, jo = 0, yo1 = 0, yo2 = 0;
 
-	while (johnjesus1 && s1[len1])
-		len1++;
-	while (johnjesus2 && johnjesus2[len2])
-		len2++;
+	while (s1 && s1[yo1])
+		yo1++;
+	while (s2 && s2[yo2])
+		yo2++;
 
-	if (nna < len2)
-		johnjesus = malloc(sizeof(char) * (len1 + nna + 1));
+	if (n < yo2)
+		john = malloc(sizeof(char) * (yo1 + n + 1));
 	else
-		johnjesus = malloc(sizeof(char) * (len1 + len2 + 1));
+		john = malloc(sizeof(char) * (yo1 + yo2 + 1));
 
-	if (!johnjesus)
+	if (!john)
 		return (NULL);
 
-	while (icon < len1)
+	while (icon < yo1)
 	{
-		johnjesus[icon] = johnjesus1[icon];
+		john[icon] = s1[icon];
 		icon++;
 	}
 
-	while (nna < len2 && icon < (len1 + nna))
-		johnjesus[icon++] = johnjesus2[jhon++];
+	while (n < yo2 && icon < (yo1 + n))
+		john[icon++] = s2[jo++];
 
-	while (nna >= laen2 && i < (len1 + len2))
-		johnjesus[icon++] =johnjesus2[john++];
+	while (n >= yo2 && icon < (yo1 + yo2))
+		john[icon++] = s2[jo++];
 
-	johnjesus[icon] = '\0';
 
-	return (johnjesus);
+	john[icon] = '\0';
+
+	return (john);
 }
 
