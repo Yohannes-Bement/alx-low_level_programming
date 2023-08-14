@@ -1,7 +1,6 @@
-#ifndef OBJECT_LIKE_MACRO_H
-#define OBJECT_LIKE_MACRO_H
+#ifndef JOHN_JESUS_YOHANES_H
+#define JOHN_JESUS_YOHANES_H
 
 #define SIZE 1024
-
 #endif
 
