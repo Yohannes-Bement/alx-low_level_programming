@@ -1,6 +1,5 @@
-#ifndef FUNCTION_POINTERS_H
-#define FUNCTION_POINTERS_H
-
+#ifndef JOHNJESUS_YOHANES_H
+#define JOHNJESUS_YOHANES_H
 #include <stddef.h>
 #include <stdlib.h>
 
