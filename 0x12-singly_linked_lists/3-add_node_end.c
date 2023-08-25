@@ -9,34 +9,34 @@
  *
  * Return: address of the new element, or NULL if it failed
  */
- sigset_t *add_node_end(sigset_t  **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	 sigset_t *new;
-	 sigset_t *temp = *head;
+ 	list_t *john;
+	list_t *t = *head;
 	unsigned int len = 0;
 
 	while (str[len])
 		len++;
 
-	new = malloc(sizeof(list_t));
-	if (!new)
+	john = malloc(sizeof(list_t));
+	if (!john)
 		return (NULL);
 
-	new->str = strdup(str);
-	new->len = len;
-	new->next = NULL;
+	john->str = strdup(str);
+	john->len = len;
+	john->next = NULL;
 
 	if (*head == NULL)
 	{
-		*head = new;
-		return (new);
+		*head = john;
+		return (john);
 	}
 
-	while (temp->next)
-		temp = temp->next;
+	while (t->next)
+		t = t->next;
 
-	temp->next = new;
+	t->next = john;
 
-	return (new);
+	return (john);
 }
 
