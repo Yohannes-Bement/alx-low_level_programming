@@ -27,7 +27,7 @@ void check_elf(unsigned char *e_ident)
 {
 	int johnjesus;
 
-	for (johnjesus = 0; johnjesus < 4; johnjesus++)
+	for (johnjesus = 0; johnesus < 4; johnjesus++)
 	{
 		if (e_ident[johnjesus] != 127 &&
 		    e_ident[johnjesus] != 'E' &&
@@ -218,7 +218,7 @@ void print_type(unsigned int e_type, unsigned char *e_ident)
 	default:
 		printf("<unknown: %x>\n", e_type);
 	}
-}
+i}
 
 /**
  * print_entry - Prints the entry point of an ELF header.
@@ -273,10 +273,10 @@ void close_elf(int elf)
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
-	int oxjo, rowjo;
+	int o, r;
 
-	oxjo = open(argv[1], O_RDONLY);
-	if (oxjo == -1)
+	o = open(argv[1], O_RDONLY);
+	if (o == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
@@ -284,15 +284,15 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	header = malloc(sizeof(Elf64_Ehdr));
 	if (header == NULL)
 	{
-		close_elf(oxjo);
+		close_elf(o);
 		dprintf(STDERR_FILENO, "Error: Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	rowjo = read(oxjo, header, sizeof(Elf64_Ehdr));
-	if (rowjo == -1)
+	r = read(o, header, sizeof(Elf64_Ehdr));
+	if (r == -1)
 	{
 		free(header);
-		close_elf(oxjo);
+		close_elf(o);
 		dprintf(STDERR_FILENO, "Error: `%s`: No such file\n", argv[1]);
 		exit(98);
 	}
@@ -309,7 +309,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	print_entry(header->e_entry, header->e_ident);
 
 	free(header);
-	close_elf(oxjo);
+	close_elf(o);
 	return (0);
 }
 

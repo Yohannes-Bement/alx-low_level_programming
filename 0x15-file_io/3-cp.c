@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *create_boyjo(char *foxjo);
-void close_foxjo(int fdoxjo);
+char *create_buffer(char *file);
+void close_file(int fd);
 
 /**
  * create_buffer - Allocates 1024 bytes for a buffer.
@@ -11,35 +11,35 @@ void close_foxjo(int fdoxjo);
  *
  * Return: A pointer to the newly-allocated buffer.
  */
-char *create_boyjo(char *foxjo)
+char *create_buffer(char *file)
 {
-	char *boyjo;
+	char *johnjesus;
 
-	boyjo = malloc(sizeof(char) * 1024);
+	johnjesus = malloc(sizeof(char) * 1024);
 
-	if (boyjo == NULL)
+	if (johnjesus == NULL)
 	{
 		dprintf(STDERR_FILENO,
-			"Error: Can't write to %s\n", foxjo);
+			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
-	return (boyjo);
+	return (johnjesus);
 }
 
 /**
- * close_foxjo - Closes file descriptors.
- * @fdxjo: The file descriptor to be closed.
+ * close_file - Closes file descriptors.
+ * @fd: The file descriptor to be closed.
  */
-void close_foxjo(int fdxjo)
+void close_file(int fd)
 {
-	int johnc;
+	int john;
 
-	johnc = close(fdxjo);
+	john = close(fd);
 
-	if (johnc == -1)
+	if (john == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fdxjo);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -58,8 +58,8 @@ void close_foxjo(int fdxjo)
  */
 int main(int argc, char *argv[])
 {
-	int fro, too, row, wood;
-	char *boyjo;
+	int fromjo, tojo, rjo, wjo;
+	char *buffer;
 
 	if (argc != 3)
 	{
@@ -67,37 +67,37 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	boyjo = create_boyjo(argv[2]);
-	fro = open(argv[1], O_RDONLY);
-	row = read(fro, boyjo, 1024);
-	too = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	buffer = create_buffer(argv[2]);
+	fromjo = open(argv[1], O_RDONLY);
+	rjo = read(fromjo, buffer, 1024);
+	tojo = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
-		if (fro == -1 || row == -1)
+		if (fromjo == -1 || rjo == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
-			free(boyjo);
+			free(buffer);
 			exit(98);
 		}
 
-		wood = write(too, boyjo, row);
-		if (too == -1 || wood == -1)
+		wjo = write(tojo, buffer, rjo);
+		if (tojo == -1 || wjo == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-			free(boyjo);
+			free(buffer);
 			exit(99);
 		}
 
-		row = read(fro, boyjo, 1024);
-		too = open(argv[2], O_WRONLY | O_APPEND);
+		rjo = read(fromjo, buffer, 1024);
+		tojo = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (row > 0);
+	} while (rjo > 0);
 
-	free(boyjo);
-	close_foxjo(fro);
-	close_foxjo(too);
+	free(buffer);
+	close_file(fromjo);
+	close_file(tojo);
 
 	return (0);
 }
