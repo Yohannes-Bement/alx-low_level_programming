@@ -6,7 +6,7 @@
  *          constant function prototype.
  * Return: Always 0
  */
-int _sofya(info_t *sofya)
+int _holly(info_t *sofya)
 {
 	print_list_str(sofya->env);
 	return (0);
